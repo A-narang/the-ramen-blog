@@ -1,0 +1,245 @@
+* {
+    margin: 0;
+    padding: 0;
+    margin: 0px;
+    font-weight: 400;
+  }
+  
+  h1, h2, h3, h4, p, a {
+    font-family: 'Inria Serif';
+  }
+  
+  .nav {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-end;  
+      background-image: radial-gradient(circle at 90% 25%, #ff8426, #ffb47a,#ff4b3b82);
+      height: 50px;
+      font-size: 18px;
+    }
+  
+  a {
+      text-decoration: none;
+      color: black;
+      margin-right: 20px;
+      margin-left: 30px; 
+      margin-bottom: 8px;
+    }
+  
+  #red-text {
+      color: #FF4B3B;
+  }
+  
+  .intro {
+    margin-top: 100px;
+    margin-left: 150px;
+    font-size: 30px;
+    margin-bottom: 10px;
+    display: flex;
+  }
+  
+  .intro p {
+    font-size: 18px;
+  }
+  
+  .intro h3 {
+    font-size: 30px;
+    font-family: "Karla", sans-serif !important;
+    font-weight: lighter;
+    max-width: 400px;
+  }
+  
+  .breaking-news {
+    display: flex;
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+  }
+  .loop-text {
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.505);
+  }
+  
+  .loop-text p {
+    margin-right: 0.5% ;
+    margin-bottom: 0.2%;
+    margin-top: 0.2%;
+    font-size: 20px;
+    font-weight: lighter;
+    color: white;
+  }
+  
+  .loop-text p:nth-child(odd) {
+    animation: loop 20s -10s linear infinite;
+  }
+  
+  .loop-text p:nth-child(even) {
+    animation: loop2 20s linear infinite;
+  }
+  
+  @keyframes loop {
+    0% {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  
+  @keyframes loop2 {
+    0% {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-200%);
+    }
+  }
+  
+  .scroll-recent-reviews {
+    display: flex;
+    background-color: rgba(255, 75, 59, 0.50);;
+    overflow: scroll;
+    height: 300px;
+  }
+  
+  .recent-review {
+    margin: 25px;
+    flex-shrink: 0;
+    transform: rotate(-90deg);
+    flex-shrink: 0;
+    height: 250px;
+    width: 250px;
+  }
+  
+  .recent-review img{
+    transform: rotate(90deg);
+    height: 250px;
+    width: 250px;
+  }
+  
+  .recent-review:hover {
+    background: white;
+  }
+  
+  .the-leader-board {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 5%;
+  }
+  
+  .text-leader-board {
+    width: 100%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .text-leader-board img {
+    width: 60%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .text-leader-board h2 {
+    font-size: 30px;
+    font-family: "Karla", sans-serif;
+    max-width: 400px;
+    font-style: italic;
+  }
+  
+  #red-line {
+    border-bottom: 2px solid #FF4B3B;
+  }
+  
+  .recommend {
+    height: 100%;
+    width: 100%;
+  }
+  
+  .recommend form {
+    border-radius: 30px;
+    background: linear-gradient(116deg, #FFB47A 1.22%, rgba(255, 75, 59, 0.50) 97.51%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    width: 50%;
+    min-height: 250px;
+  
+  }
+  
+  .recommend label {
+    font-size: 28px;
+    text-align: center;
+    margin: 5%;
+    font-family: Handjet;
+  }
+  
+  .recommend textarea {
+    font-family: "Karla", sans-serif;
+    font-size: 20px;
+    width: 80%;
+    height: 80%;
+    border: 0px none;
+    border-radius: 10px;
+    min-height: 100px;
+  }
+  
+  .recommend input {
+    border: 0px none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: transparent;
+    font-size: 20px;
+    font-family: Handjet;
+  }
+  
+  .recommend input:hover {
+    color: #FF4B3B;
+  }
+  
+  .time-date {
+    display: flex; 
+    justify-content: space-evenly;
+  }
+  
+  .receipt {
+    border: solid 20px #ff8426;
+    width: 50%;
+    max-width: 350px;
+    margin-right: 10%;
+    background-image: url("https://media.istockphoto.com/id/1199971584/vector/paper-texture-background.jpg?s=612x612&w=0&k=20&c=nqWK-ppAxZLYeKfxur9eHVldpSLDD1njkitFS2hyinY=");
+  }
+  
+  .receipt p {
+    font-family: Jura;
+  }
+  
+  .receipt li {
+    text-align: right;
+    line-height: 90px;
+    margin-left: 60px;
+    margin-right: 20px;
+    font-family: 'Handjet';
+    font-size: 30px;
+  }
+  
+  .receipt h4 {
+    margin: 5px;
+    font-size: 30px;
+    font-family: 'Libre Barcode 128';
+  }
+  
+  .receipt h2 {
+    font-family: "Koulen";
+    font-size: 40px;
+  
+  }
+  

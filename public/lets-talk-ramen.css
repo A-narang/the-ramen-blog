@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  h1, h2, h3, p, a, nav {
+    font-family: 'Karla';
+    margin: 0px;
+    font-weight: 400;
+  }
+  
+  .nav {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-end;  
+      background-image: radial-gradient(circle at 90% 25%, #ff8426, #ffb47a,#ff4b3b82);
+      height: 50px;
+      font-size: 18px;
+    }
+  
+  a {
+      text-decoration: none;
+      color: black;
+      margin-right: 20px;
+      margin-left: 30px; 
+      margin-bottom: 8px;
+    }
+  
+  #red-text {
+    color: var(--red-1, #FF4B3B);
+    font-family: "Inria Serif";
+    font-size: 60px;
+    font-style: italic;
+    font-weight: 700;
+    line-height: normal;
+  }
+
+  div.title {
+    margin-top: 100px;
+    margin-left: 200px;
+    font-size: 30px;
+    width: 300px;
+    height: 158px;
+  }
+
+  .flex-container {
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: white;
+    margin-top: 75px;
+    margin-right: 100px;
+    margin-left: 100px;
+  }
+    
+  .flex-container > div {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+  
+  .text {
+    margin-left: 90px;
+    background-color: #FFB47A;
+    width: 1228px;
+    height: 387px;  
+    display: flex;
+    flex-direction: column;
+  }
+
+  .text h3 {
+    margin-left: 30px;
+    font-size: 25px;
+    text-align: left;
+    color: #000;
+    font-style: normal;
+    line-height: normal;
+  }
+
+  .title-text {
+    margin-top: 30px;
+  }
+
+  .thoughts {
+    margin-left: 30px;
+    margin-top: 30px;
+    font-size: 20px;
+    font-weight: 400;
+    text-align: left;
+    background: linear-gradient(180deg, #000 0%, #FFB47A 93.51%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
