@@ -10,6 +10,7 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+import reviewRouter from './src/routers/reviewRouter.js';
 
 app.use(morgan('tiny'));
 app.use(express.static(path.join(__dirname, '/public')));
