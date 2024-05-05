@@ -11,8 +11,8 @@
 <header>
     <div class = "nav">
         <a href="/">home</a>
-        <a href="lets-talk-ramen">let's talk ramen</a>
-        <a href="about-us">about us</a>
+        <a href="/reviews">let's talk ramen</a>
+        <a href="/about-us">about us</a>
     </div>
 </header>
 <body>
@@ -20,26 +20,27 @@
         <h1 id ="red-text"><em>let's talk ramen</em></h1>
     </div>
     <br>
-    <div class = "flex-container">
-        <div class = "text">
-            <div class = "title-text">
-                <h3>Ramen Name</h3>
-                <h3>Average Rating: _/5</h3>
-                <h3>Date Reviewed: mm/dd/yy</h3>
+    <div class="flex-container">
+        <% reviews.reviews.forEach(review => { %>
+        <div class="text">
+            <div class="title-text">
+                <h3>
+                    <a href="/reviews/<%= review.reviewID %>"><%= review.ramenName %></a>
+                </h3>
+                <h3>Average Rating: <%= (review.rating1 + review.rating2) / 2 %></h3>
+                <h3>Date Reviewed: <%= review.dateReviewed %></h3>
             </div>
-            <div class = "thoughts">
+            <div class="thoughts">
                 <p>
-                    Thoughts: adfsafdsfasdhfuawhfuhauhfuwaeu
-                    fhhafuhrawuhfhreufhehaehufhauefauhfuauerfhuaheuf
-                    hurehfuhfruhaeurfuaehfuheahrufheuhaufuhruhfafhruhauefueu
-                    fhhrhfhrufhurufhur.
+                    Thoughts: <%= review.reviewText1 %>
                 </p>
             </div>
         </div>
-        <div class = "photo">
-            <img src="https://content.codecademy.com/courses/web-101/web101-image_brownbear.jpg" width=419px
-            height=387px>
+        <div class="photo">
+            <img src="<%= review.photoURL %>" width="419px" height="387px" alt="Ramen Photo">
         </div>
+        <% }); %>
     </div>
+    
 </body>
 </html>

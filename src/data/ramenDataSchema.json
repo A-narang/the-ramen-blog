@@ -1,0 +1,58 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "RamenReview",
+    "type": "object",
+    "properties": {
+      "reviewID": {
+        "type": "integer",
+        "description": "Unique identifier for the review"
+      },
+      "ramenName": {
+        "type": "string",
+        "description": "Name of the ramen being reviewed",
+        "minLength": 1
+      },
+      "reviewer1Name": {
+        "type": "string",
+        "description": "Name of the person reviewing the ramen",
+        "minLength": 1
+      },
+      "reviewer2Name": {
+        "type": "string",
+        "description": "Name of the person reviewing the ramen",
+        "minLength": 1
+      },
+      "reviewDate": {
+        "type": "string",
+        "format": "date",
+        "description": "Date of the review in the format YYYY-MM-DD"
+      },
+      "rating1": {
+        "type": "number",
+        "description": "Rating of the ramen out of 5",
+        "minimum": 0,
+        "maximum": 5
+      },
+      "rating2": {
+        "type": "number",
+        "description": "Rating of the ramen out of 5",
+        "minimum": 0,
+        "maximum": 5
+      },
+      "reviewText1": {
+        "type": "string",
+        "description": "Text of the review"
+      },
+      "reviewText2": {
+        "type": "string",
+        "description": "Text of the review"
+      },
+      "reviewImage": {
+        "type": "string",
+        "description": "A URL of the image for this review"
+      }
+    },
+    "required": ["reviewID", "ramenName", "reviewImage", "reviewer1Name", "reviewDate", "rating1", "reviewText1"],
+    "additionalProperties": false
+  }
+  

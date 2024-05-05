@@ -14,20 +14,16 @@ import reviewRouter from './src/routers/reviewRouter.js';
 
 app.use(morgan('tiny'));
 app.use(express.static(path.join(__dirname, '/public')));
+app.use('/reviews', reviewRouter);
 
 app.set('views', './src/views');
 app.set('view engine', 'ejs');
+
 app.get('/',(req, res)=>{
 	res.render('index');
 });
 app.get('/about-us',(req, res)=>{
 	res.render('about-us');
-});
-app.get('/lets-talk-ramen',(req, res)=>{
-	res.render('lets-talk-ramen');
-});
-app.get('/review',(req, res)=>{
-	res.render('review');
 });
 
 // listen on a port
