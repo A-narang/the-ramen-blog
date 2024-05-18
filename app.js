@@ -11,12 +11,10 @@ const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 import reviewRouter from './src/routers/reviewRouter.js';
-import adminRouter from './src/routers/adminRouter.js';
 
 app.use(morgan('tiny'));
 app.use(express.static(path.join(__dirname, '/public')));
 app.use('/reviews', reviewRouter);
-app.use('/admin', adminRouter);
 
 app.set('views', './src/views');
 app.set('view engine', 'ejs');
