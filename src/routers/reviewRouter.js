@@ -12,6 +12,8 @@ dotenv.config();
 // constants
 const reviewRouter = express.Router();
 const url = process.env.MONGODB_URL;
+const dbName = 'test';
+const collection = 'testers'
 
 // make a mongo client
 let client;
@@ -27,10 +29,6 @@ async function connectToMongo() {
 }
 
 reviewRouter.route('').get(async (req, res) => {
-
-    const dbName = 'test';
-    const collection = 'testers'
-
     try {
         const client = await connectToMongo();
         debug('Connected to the Mongo DB');
@@ -44,10 +42,6 @@ reviewRouter.route('').get(async (req, res) => {
     });
 
 reviewRouter.route('/:id').get(async (req, res) => {
-
-    const dbName = 'test';
-    const collection = 'testers'
-
     try {
         const id = req.params.id; // Convert id 
         const client = await connectToMongo();

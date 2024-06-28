@@ -11,6 +11,7 @@ const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 import reviewRouter from './src/routers/reviewRouter.js';
+import formRouter from './src/routers/formRouter.js';
 
 app.use(morgan('tiny'));
 app.use(express.static(path.join(__dirname, '/public')));
@@ -24,6 +25,9 @@ app.get('/',(req, res)=>{
 });
 app.get('/about-us',(req, res)=>{
 	res.render('about-us');
+});
+app.get('/form',(req, res)=>{
+	res.render('form');
 });
 
 // listen on a port

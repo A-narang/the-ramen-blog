@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0; 
+  }
+
+
+  h1, h2, h3, p, a, nav {
+    font-family: 'Inria Serif';
+    margin: 0px;
+    font-weight: normal;
+  }
+
+.nav {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;  
+    background-image: radial-gradient(circle at 90% 25%, #ff8426, #ffb47a,#ff4b3b82);
+    height: 50px;
+    font-size: 18px;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+    margin-right: 20px;
+    margin-left: 30px; 
+    margin-bottom: 8px;
+  }
