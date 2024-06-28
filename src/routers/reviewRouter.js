@@ -1,3 +1,5 @@
+
+// imports
 import express from 'express';
 //import reviews from '../data/ramenData.json' with { type: "json" };
 import debugModule from 'debug';
@@ -7,54 +9,59 @@ const { MongoClient, ObjectId, ServerApiVersion } = pkg;
 import dotenv from 'dotenv';
 dotenv.config();
 
+// constants
 const reviewRouter = express.Router();
+const url = process.env.MONGODB_URL;
 
-const uri = process.env.MONGODB_URL;
+// make a mongo client
+let client;
 
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version and SSL options
-const client = new MongoClient(uri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    serverApi: {
-      version: ServerApiVersion.v1,
-      strict: true,
-      deprecationErrors: true,
-    },
-    ssl: true,
-    // Uncomment and specify the CA file path if using self-signed certificates
-    // sslCA: fs.readFileSync('/path/to/ca-certificate.crt'),
-    // sslValidate: false // Disable SSL validation (for testing only)
-  });
+// connect to the db
+async function connectToMongo() {
+  if (!client) {
+    client = new MongoClient(url, { useUnifiedTopology: true });
+    await client.connect();
+    debug('Connected to the Mongo DB');
+  }
+  return client;
+}
 
 reviewRouter.route('').get(async (req, res) => {
 
-    const dbName = 'ramenTest';
+    const dbName = 'test';
+    const collection = 'testers'
 
     try {
-        await client.connect();
+        const client = await connectToMongo();
         debug('Connected to the Mongo DB');
         const db = client.db(dbName);
-        const reviews = await db.collection('realData').find().toArray();
-        console.log("Pinged your deployment. You successfully connected to MongoDB!");
+        const reviews = await db.collection(collection).find().toArray();
         res.render('lets-talk-ramen', {reviews}); // Send the response data to the client
     } catch (error) {
         debug('Failed to insert data:', error.stack);
         res.status(500).json({ error: 'Failed to retrieve data', details: error.message });
-    } finally {
-        if (client) {
-            await client.close(); // Ensure the client is closed in the finally block
-            debug('MongoDB connection closed');
-        }
-    }
-});
+    } 
+    });
 
-reviewRouter.route('/:id').get((req, res) => {
-    const id = req.params.id; // Convert id to an index
-    const review = reviews[id]; // Get the order using the ID
-    if (review) {
-        res.render('view-request');
-    } else {
-        res.status(404).send('Review not found');
+reviewRouter.route('/:id').get(async (req, res) => {
+
+    const dbName = 'test';
+    const collection = 'testers'
+
+    try {
+        const id = req.params.id; // Convert id 
+        const client = await connectToMongo();
+        const db = client.db(dbName);
+        const review = await db.collection(collection).findOne({_id: new ObjectId(id)});
+        if (review == null) {
+            res.status(500).json({ error: 'Failed to find data'});
+        }
+        else {
+            res.render('review', {review});
+        } 
+    } catch (error) {
+        debug('failed to find object')
+        res.status(500).json({ error: 'Failed to find data', details: error.message });
     }
 });
 

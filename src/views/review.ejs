@@ -22,22 +22,22 @@
 <body>
     <div class = "overall">
         <div class = "ramen-review-text">
-            <h1 id = "red-text"><em>Ramen Name</em></h1>
-            <h4><em>date and time of review</em></h4>
-            <p>short description of ramen</p>
+            <h1 id="red-text"><em><%= review.ramenName %></em></h1>
+            <h4><em><%= review.reviewDate %></em></h4>
+            <p><%= review.ramenText1 %></p>
         
             <div class = "ave-rating">
-                <h1>#</h1>
-                <p><em>this ramen's average rating out of 10</em></p>
+                <h1><%= (review.rating1 + review.rating2) / 2 %></h1>
+                <p><em>Average Rating</em></p>
             </div>
         
             <div class = "review-content">
                 <div>
                     <h2 id = "red-text"><em>anusha's review</em></h2>
-                    <p>blah blah blah</p>
+                    <p><%= review.reviewText1 %></p>
                 </div>
                 <div>
-                    <h1>#</h1>
+                    <h1><%= review.rating1 %></h1>
                     <h4>anusha's rating</h4>
                 </div>
             </div>
@@ -45,10 +45,10 @@
             <div class = "review-content">
                 <div>
                     <h2 id = "red-text"><em>thillai's review</em></h2>
-                    <p>blah blah blah</p>
+                    <p><%= review.reviewText2 %></p>
                 </div>
                 <div>
-                    <h1>#</h1>
+                    <h1><%= review.rating2 %></h1>
                     <h4>thillai's rating</h4>
                 </div>
             </div>

@@ -21,14 +21,14 @@
     </div>
     <br>
     <div class="flex-container">
-        <% reviews.reviews.forEach(review => { %>
+        <% reviews.forEach(review => { %>
         <div class="text">
             <div class="title-text">
                 <h3>
-                    <a href="/reviews/<%= review.reviewID %>"><%= review.ramenName %></a>
+                    <a href="/reviews/<%= review._id %>"><%= review.ramenName %></a>
                 </h3>
                 <h3>Average Rating: <%= (review.rating1 + review.rating2) / 2 %></h3>
-                <h3>Date Reviewed: <%= review.dateReviewed %></h3>
+                <h3>Date Reviewed: <%= review.reviewDate %></h3>
             </div>
             <div class="thoughts">
                 <p>
