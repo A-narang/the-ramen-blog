@@ -17,7 +17,51 @@
     </div>
 </header>
 <body>
-    <form action="/submit" method="post">
+    <h1>Submit a Review!</h1>
+    <p>
+        Here, you can add a pair of ratings and reviews for 
+        a ramen. 
+    </p>
+    <p>
+        Be sure to include the date of the review 
+        and an image of the ramen as well!
+    </p>
+    <form action="form/submit" method="post">
+        <!-- trying to make labels and inputs side by side -->
+        <div class="flex-container">
+            <div>
+                <label for="ramenName">Ramen Name</label><br>
+            </div>
+            <div>
+                <input type="text" id="ramenName" name="ramenName" required><br><br>
+            </div>
+        </div>
+
+        <label for="reviewDate">Review Date</label><br>
+        <input type="date" id="reviewDate" name="reviewDate" required><br><br>
+
+        <label for="reviewImage">Image of Ramen</label><br>
+        <input type="text" id="reviewImage" name="reviewImage" required><br><br>
+
+        <label for="reviewer1Name">Reviewer #1's Name</label><br>
+        <input type="text" id="reviewer1Name" name="reviewer1Name" required><br><br>
+
+        <label for="rating1">Reviewer #1's Rating</label><br>
+        <input type="text" id="rating1" name="rating1" required><br><br>
+
+        <label for="reviewText1">Reviewer #1's Review</label><br>
+        <input type="text" id="reviewText1" name="reviewText1" required><br><br>
+
+        <label for="reviewer2Name">Reviewer #2's Name</label><br>
+        <input type="text" id="reviewer2Name" name="reviewer2Name" required><br><br>
+
+        <label for="rating2">Reviewer #2's Rating</label><br>
+        <input type="text" id="rating2" name="rating2" required><br><br>
+
+        <label for="reviewText2">Reviewer #2's Review</label><br>
+        <input type="text" id="reviewText2" name="reviewText2" required><br><br>
+
+        <input class = "submit" type="submit" value="Submit">
         <!-- This is a single-line comment -->
     </form> 
 </body>

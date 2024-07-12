@@ -28,18 +28,27 @@ async function connectToMongo() {
   return client;
 }
 
-formRouter.get('/form',(req, res)=>{
+formRouter.get('',(req, res)=>{
 	res.render('form');
 });
 
 // form submission route
 formRouter.post('/submit', async (req, res) => {
     console.log('req.body:', req.body);
-    const { name, logo_url, desc, active } = req.body;
+    // req.body is undefinied rn when you try to submit, look into why
+    const {ramenName, reviewer1Name, reviewer2Name, reviewDate, rating1, rating2,
+      reviewText1, reviewText2, reviewImage} = req.body;
     
     const newReview = {
-      name: ramenName,
-      ramentext1: RamenText1
+      ramenName: ramenName,
+      reviewer1Name: reviewer1Name,
+      reviewer2Name: reviewer2Name,
+      reviewDate: reviewDate,
+      rating1: rating1,
+      rating2: rating2,
+      reviewText1: reviewText1,
+      reviewText2: reviewText2,
+      reviewImage: reviewImage
     };
   
     try {
@@ -51,6 +60,7 @@ formRouter.post('/submit', async (req, res) => {
     } catch (error) {
       debug('Failed to insert data:', error.stack);
       res.status(500).json({ error: 'Failed to insert data', details: error.message });
+      console.log(error.message)
     }
   });
 

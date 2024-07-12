@@ -16,6 +16,7 @@ import formRouter from './src/routers/formRouter.js';
 app.use(morgan('tiny'));
 app.use(express.static(path.join(__dirname, '/public')));
 app.use('/reviews', reviewRouter);
+app.use('/form', formRouter); // uses form router to navigate to form
 
 app.set('views', './src/views');
 app.set('view engine', 'ejs');
@@ -25,9 +26,6 @@ app.get('/',(req, res)=>{
 });
 app.get('/about-us',(req, res)=>{
 	res.render('about-us');
-});
-app.get('/form',(req, res)=>{
-	res.render('form');
 });
 
 // listen on a port
