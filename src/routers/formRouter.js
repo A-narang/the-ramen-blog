@@ -34,34 +34,41 @@ formRouter.get('',(req, res)=>{
 
 // form submission route
 formRouter.post('/submit', async (req, res) => {
-    console.log('req.body:', req.body);
-    // req.body is undefinied rn when you try to submit, look into why
-    const {ramenName, reviewer1Name, reviewer2Name, reviewDate, rating1, rating2,
-      reviewText1, reviewText2, reviewImage} = req.body;
-    
-    const newReview = {
-      ramenName: ramenName,
-      reviewer1Name: reviewer1Name,
-      reviewer2Name: reviewer2Name,
-      reviewDate: reviewDate,
-      rating1: rating1,
-      rating2: rating2,
-      reviewText1: reviewText1,
-      reviewText2: reviewText2,
-      reviewImage: reviewImage
-    };
+  console.log('Headers:', req.headers);
+  console.log('req.body:', req.body);
   
-    try {
+  if (!req.body || Object.keys(req.body).length === 0) {
+      return res.status(400).json({ error: 'No data received in request body' });
+  }
+
+  try {
+      const {ramenName, reviewer1Name, reviewer2Name, reviewDate, rating1, rating2,
+             reviewText1, reviewText2, reviewImage} = req.body;
+
+      // Check if all required fields are present
+      const requiredFields = ['ramenName', 'reviewer1Name', 'reviewer2Name', 'reviewDate', 'rating1', 'rating2',
+                              'reviewText1', 'reviewText2', 'reviewImage'];
+      for (let field of requiredFields) {
+          if (!req.body[field]) {
+              return res.status(400).json({ error: `Missing required field: ${field}` });
+          }
+      }
+
+      const newReview = {
+          ramenName, reviewer1Name, reviewer2Name, reviewDate, rating1, rating2,
+          reviewText1, reviewText2, reviewImage
+      };
+
       const client = await connectToMongo();
       const db = client.db(dbName);
       const info = await db.collection(collection);
       await info.insertOne(newReview);
       res.redirect('/');
-    } catch (error) {
+  } catch (error) {
       debug('Failed to insert data:', error.stack);
       res.status(500).json({ error: 'Failed to insert data', details: error.message });
-      console.log(error.message)
-    }
-  });
+      console.log(error.message);
+  }
+});
 
 export default formRouter;

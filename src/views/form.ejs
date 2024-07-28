@@ -3,65 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>submit a review!</title>
+    <title>Submit a Review</title>
     <link href='https://fonts.googleapis.com/css?family=Karla' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Inria Serif' rel='stylesheet'>  
     <link rel="stylesheet" href="/css/form-style.css">
 </head>
-<header>
-    <div class = "nav">
-        <a href="/">home</a>
-        <a href="/reviews">let's talk ramen</a>
-        <a href="/form">submit a review</a>
-        <a href="/about-us">about us</a>
-    </div>
-</header>
 <body>
-    <h1>Submit a Review!</h1>
-    <p>
-        Here, you can add a pair of ratings and reviews for 
-        a ramen. 
-    </p>
-    <p>
-        Be sure to include the date of the review 
-        and an image of the ramen as well!
-    </p>
-    <form action="form/submit" method="post">
-        <!-- trying to make labels and inputs side by side -->
-        <div class="flex-container">
-            <div>
-                <label for="ramenName">Ramen Name</label><br>
+    <header>
+        <nav class="nav">
+            <a href="/">Home</a>
+            <a href="/reviews">Let's Talk Ramen</a>
+            <a href="/form">Submit a Review</a>
+            <a href="/about-us">About Us</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Submit a Review!</h1>
+        <p>Here, you can add a pair of ratings and reviews for a ramen.</p>
+        <p>Be sure to include the date of the review and an image of the ramen as well!</p>
+
+        <form action="/form/submit" method="post" enctype="application/x-www-form-urlencoded">
+            <div class="form-group">
+                <label for="ramenName">Ramen Name</label>
+                <input type="text" id="ramenName" name="ramenName" required>
             </div>
-            <div>
-                <input type="text" id="ramenName" name="ramenName" required><br><br>
+
+            <div class="form-group">
+                <label for="reviewDate">Review Date</label>
+                <input type="date" id="reviewDate" name="reviewDate" required>
             </div>
-        </div>
 
-        <label for="reviewDate">Review Date</label><br>
-        <input type="date" id="reviewDate" name="reviewDate" required><br><br>
+            <div class="form-group">
+                <label for="reviewImage">Image of Ramen (URL)</label>
+                <input type="url" id="reviewImage" name="reviewImage" required>
+            </div>
 
-        <label for="reviewImage">Image of Ramen</label><br>
-        <input type="text" id="reviewImage" name="reviewImage" required><br><br>
+            <div class="form-group">
+                <label for="reviewer1Name">Reviewer #1's Name</label>
+                <input type="text" id="reviewer1Name" name="reviewer1Name" required>
+            </div>
 
-        <label for="reviewer1Name">Reviewer #1's Name</label><br>
-        <input type="text" id="reviewer1Name" name="reviewer1Name" required><br><br>
+            <div class="form-group">
+                <label for="rating1">Reviewer #1's Rating</label>
+                <input type="number" id="rating1" name="rating1" min="1" max="5" required>
+            </div>
 
-        <label for="rating1">Reviewer #1's Rating</label><br>
-        <input type="text" id="rating1" name="rating1" required><br><br>
+            <div class="form-group">
+                <label for="reviewText1">Reviewer #1's Review</label>
+                <textarea id="reviewText1" name="reviewText1" required></textarea>
+            </div>
 
-        <label for="reviewText1">Reviewer #1's Review</label><br>
-        <input type="text" id="reviewText1" name="reviewText1" required><br><br>
+            <div class="form-group">
+                <label for="reviewer2Name">Reviewer #2's Name</label>
+                <input type="text" id="reviewer2Name" name="reviewer2Name" required>
+            </div>
 
-        <label for="reviewer2Name">Reviewer #2's Name</label><br>
-        <input type="text" id="reviewer2Name" name="reviewer2Name" required><br><br>
+            <div class="form-group">
+                <label for="rating2">Reviewer #2's Rating</label>
+                <input type="number" id="rating2" name="rating2" min="1" max="5" required>
+            </div>
 
-        <label for="rating2">Reviewer #2's Rating</label><br>
-        <input type="text" id="rating2" name="rating2" required><br><br>
+            <div class="form-group">
+                <label for="reviewText2">Reviewer #2's Review</label>
+                <textarea id="reviewText2" name="reviewText2" required></textarea>
+            </div>
 
-        <label for="reviewText2">Reviewer #2's Review</label><br>
-        <input type="text" id="reviewText2" name="reviewText2" required><br><br>
-
-        <input class = "submit" type="submit" value="Submit">
-        <!-- This is a single-line comment -->
-    </form> 
+            <button type="submit" class="submit">Submit</button>
+        </form>
+    </main>
 </body>
+</html>
