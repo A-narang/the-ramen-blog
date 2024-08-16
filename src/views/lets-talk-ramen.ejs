@@ -1,47 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>reviews</title>
     <link href='https://fonts.googleapis.com/css?family=Karla' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Inria Serif' rel='stylesheet'>  
+    <link href='https://fonts.googleapis.com/css?family=Inria Serif' rel='stylesheet'>
     <link rel="stylesheet" href="/css/lets-talk-ramen.css">
 </head>
 <header>
-    <div class = "nav">
+    <div class="nav">
         <a href="/">home</a>
         <a href="/reviews">let's talk ramen</a>
         <a href="/form">submit a review</a>
         <a href="/about-us">about us</a>
     </div>
 </header>
+
 <body>
-    <div class = "title">
-        <h1 id ="red-text"><em>let's talk ramen</em></h1>
+    <div class="title">
+        <h1 id="red-text"><em>let's talk ramen</em></h1>
     </div>
     <br>
     <div class="flex-container">
-        <% reviews.forEach(review => { %>
-        <div class="text">
-            <div class="title-text">
-                <h3>
-                    <a href="/reviews/<%= review._id %>"><%= review.ramenName %></a>
-                </h3>
-                <h3>Average Rating: <%= (review.rating1 + review.rating2) / 2 %></h3>
-                <h3>Date Reviewed: <%= review.reviewDate %></h3>
+        <% reviews.forEach(review=> { %>
+            <div class="text">
+                <div class="title-text">
+                    <h3>
+                        <a href="/reviews/<%= review._id %>">
+                            <%= review.ramenName %>
+                        </a>
+                    </h3>
+                    <h3>Average Rating: <%= (review.rating1 + review.rating2) / 2 %>
+                    </h3>
+                    <h3>Date Reviewed: <%= review.reviewDate %>
+                    </h3>
+                </div>
+                <div class="thoughts">
+                    <p>
+                        Thoughts: <%= review.reviewText1 %>
+                    </p>
+                </div>
             </div>
-            <div class="thoughts">
-                <p>
-                    Thoughts: <%= review.reviewText1 %>
-                </p>
+            <div class="photo">
+                <img src="<%= review.photoURL %>" width="419px" height="387px" alt="Ramen Photo">
             </div>
-        </div>
-        <div class="photo">
-            <img src="<%= review.photoURL %>" width="419px" height="387px" alt="Ramen Photo">
-        </div>
-        <% }); %>
+            <% }); %>
     </div>
-    
+
 </body>
+
 </html>

@@ -13,15 +13,18 @@
   "license": "ISC",
   "dependencies": {
     "chalk": "^5.3.0",
+    "crypto": "^1.0.1",
     "debug": "^4.3.4",
     "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
     "express": "^4.19.2",
+    "local": "^0.3.3",
     "mongodb": "^6.6.2",
     "mongoose": "^8.4.0",
     "mongosh": "^2.2.6",
     "morgan": "^1.10.0",
-    "nodemon": "^3.1.0"
+    "nodemon": "^3.1.0",
+    "passport": "^0.7.0"
   },
   "nodemonConfig": {
     "restartable": "rs",
