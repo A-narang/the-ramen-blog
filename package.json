@@ -24,7 +24,8 @@
     "mongosh": "^2.2.6",
     "morgan": "^1.10.0",
     "nodemon": "^3.1.0",
-    "passport": "^0.7.0"
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0"
   },
   "nodemonConfig": {
     "restartable": "rs",
