@@ -35,6 +35,7 @@ reviewRouter.route('').get(async (req, res) => {
         //debug('Connected to the Mongo DB');
         //const db = client.db(dbName);
         const reviews = getReviews();
+        reviews.toArray()
         res.render('lets-talk-ramen', {reviews}); // Send the response data to the client
     } catch (error) {
         debug('Failed to insert data:', error.stack);

@@ -42,6 +42,7 @@ export const createUser = async (username, hashedPassword, salt) => {
 };
 
 export const verifyUser = async (username, password, cb) => {
+    dbName
     await connectToMongo();
     return await passport.use(new LocalStrategy(function verify(username, password, cb) {
         const collection = db.collection(collectionName);

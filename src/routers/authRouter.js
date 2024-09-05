@@ -40,33 +40,6 @@ passport.use(new LocalStrategy(function verify(username, password, cb) {
 
 let db;
 
-// Connect to MongoDB
-MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(client => {
-        db = client.db(dbName);
-        debug('Connected to database');
-
-        // Now configure Passport strategy
-        passport.use(new LocalStrategy(function verify(username, password, cb) {
-            const collection = db.collection(collectionName);
-
-            collection.findOne({ username: username }, function (err, user) {
-                if (err) { return cb(err); }
-                if (!user) { return cb(null, false, { message: 'Incorrect username or password.' }); }
-
-                crypto.pbkdf2(password, user.salt, 310000, 32, 'sha256', function (err, hashedPassword) {
-                    if (err) { return cb(err); }
-                    if (!crypto.timingSafeEqual(user.hashed_password.buffer, hashedPassword)) {
-                        return cb(null, false, { message: 'Incorrect username or password.' });
-                    }
-                    return cb(null, user);
-                });
-            });
-        }));
-
-    })
-    .catch(err => debug('Failed to connect to database', err));
-
 authRouter.post('/sign-in/password', passport.authenticate('local', {
     successRedirect: '/',
     failureRedirect: '/sign-in'
@@ -81,7 +54,7 @@ authRouter.get('/sign-up', (req, res) => {
 })
 
 // form submission route
-authRouter.post('/submit', async (req, res) => {
+authRouter.post('/', async (req, res) => {
     console.log('Headers:', req.headers);
     console.log('req.body:', req.body);
   
